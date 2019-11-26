@@ -1,4 +1,4 @@
-mdoule.exports = {
+module.exports = {
   todo: require("./todo"),
   user: require("./user")
 };
