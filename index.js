@@ -1,30 +1,34 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const cors = require("cors")
-const PORT = 3005;
+const cors = require("cors");
+const PORT = 5001;
 
-app.use(cors())
+app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => {
-  res.send({ message: "Learn Express" });
-});
+app.use("/", require("./routes"));
+app.use("/todo", require("./routes/todos"));
+app.use("/users", require("./routes/users"));
 
-app.post("/", (req, res) => {
-    res.status(201).json({
-      message: "New Item is Added",
-      data: {
-        name: req.body.name,
-        address: req.body.address,
-        age: req.body.age,
-        role: req.body.role,
-        salary: req.body.salary
-      }
-    });
-  });
+// app.get("/", (req, res) => {
+//   res.send({ message: "Learn Express" });
+// });
+
+// app.post("/", (req, res) => {
+//     res.status(201).json({
+//       message: "New Item is Added",
+//       data: {
+//         name: req.body.name,
+//         address: req.body.address,
+//         age: req.body.age,
+//         role: req.body.role,
+//         salary: req.body.salary
+//       }
+//     });
+//   });
 
 // app.post("/", (req, res) => {
 //   res.send({
@@ -39,16 +43,16 @@ app.post("/", (req, res) => {
 //   });
 // });
 
-app.put("/edit", (req, res) => {
-  res.send({
-    message: "New Item is Added",
-    data: {
-      name: req.body.name,
-      address: req.body.address,
-      age: req.body.age
-    }
-  });
-});
+// app.put("/edit", (req, res) => {
+//   res.send({
+//     message: "New Item is Added",
+//     data: {
+//       name: req.body.name,
+//       address: req.body.address,
+//       age: req.body.age
+//     }
+//   });
+// });
 
 // console.log(PORT);
 
