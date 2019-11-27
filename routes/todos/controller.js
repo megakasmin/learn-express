@@ -15,19 +15,17 @@ module.exports = {
       });
   },
   getById: (req, res) => {
-    const findOne = todos.todo.find(item => {
-      return item.id === Number(req.params.id);
-    });
-
-    res.send(findOne);
+    get()
+      .collection("todos")
+      .findOne({ name: req.params.name })
+      .then(result => {
+        res.send({ message: "get One Data", data: result });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   },
-  deleteOne: (req, res) => {
-    let newTodo = todos.todo.filter(
-      item => item.id !== parseInt(req.params.id)
-    );
-
-    res.send(newTodo);
-  },
+  deleteOne: (req, res) => {},
   addOne: (req, res) => {
     get()
       .collection("todos")

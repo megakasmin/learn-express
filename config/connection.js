@@ -30,7 +30,7 @@ const close = () => {
   mongo.close;
 };
 
-module.export = {
+module.exports = {
   connect,
   get,
   close
