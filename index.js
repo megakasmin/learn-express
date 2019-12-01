@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 app.use("/", require("./routes"));
 app.use("/todo", require("./routes/todos"));
 app.use("/users", require("./routes/users"));
+app.use("/validate", require("./routes/validate"));
 
 connect(() => {
   app.listen(PORT, () => {

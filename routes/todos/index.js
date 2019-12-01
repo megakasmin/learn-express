@@ -4,8 +4,10 @@ const router = express.Router();
 const todoController = require("./controller");
 
 router.get("/", todoController.getAll);
-router.get("/:name", todoController.getById);
+router.get("/:id", todoController.getById);
+router.get("/email/:email", todoController.getByEmail);
 router.delete("/:id", todoController.deleteOne);
 router.post("/", todoController.addOne);
+router.put("/:id", todosController.updateOne);
 
 module.exports = router;
