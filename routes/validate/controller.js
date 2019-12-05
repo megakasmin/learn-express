@@ -12,7 +12,7 @@ module.exports = () => {
 
       switch (id) {
         case "signup":
-          return res.josn(await signup(body));
+          return res.json(await signup(body));
         case "login":
           return res.json(await login(body));
         default:

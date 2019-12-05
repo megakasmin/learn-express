@@ -1,6 +1,7 @@
 const { get } = require("../../config");
 
 const signup = async ({ email, password, firstName, lastName }) => {
+  console.log("masuk");
   try {
     const result = {};
     const data = await get()
@@ -33,6 +34,8 @@ const signup = async ({ email, password, firstName, lastName }) => {
 
     return result;
   } catch (error) {
+    console.log(error);
+
     throw error;
   }
 };
