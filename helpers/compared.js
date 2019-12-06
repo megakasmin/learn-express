@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt");
 
 const comparedPassword = async (plainPassword, hashPassword) => {
   const compared = await bcrypt
-    .compared(plainPassword, hashPassword)
+    .compare(plainPassword, hashPassword)
     .then(result => {
       return result;
     });

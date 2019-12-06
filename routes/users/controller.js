@@ -53,7 +53,7 @@ module.exports = {
     const hash = await hashPassword(req.body.password);
     get()
       .collection("users")
-      .insertOne({ ...req.body, password: hash })
+      .insertOne({ ...req.body, password: hash, image: req.file.path })
       .then(result => {
         res.status(201).json({
           message: "Data successfully added",
@@ -99,7 +99,7 @@ module.exports = {
             },
             JWT_SECRET_KEY,
             {
-              expiresIn: "30s"
+              expiresIn: "30d"
             }
           );
           res.status(200).json({

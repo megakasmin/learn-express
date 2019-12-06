@@ -39,3 +39,5 @@ const signup = async ({ email, password, firstName, lastName }) => {
     throw error;
   }
 };
+
+module.exports = signup
